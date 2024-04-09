@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traversing</title>
+
+    <style>
+      .ancestors,
+      .descendants * {
+        display: block;
+        border: 2px solid lightgray;
+        color: lightgrey;
+        padding: 5px;
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ancestors -->
+    <!-- <div class="ancestors">
+      <div style="width: 500px">
+        div (great-grandparents)
+        <ul style="width: 500px">
+          ul (grandparent)
+          <li>
+            li (direct parent)
+            <span>span</span>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+
+    <!-- descendants -->
+
+    <div class="descendants" style="width: 500px">
+      current element
+      <p class="first">
+        p (child)
+        <span>span (grandchild)</span>
+      </p>
+      <p>
+        p (child)
+        <span>span (grandchild)</span>
+      </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        //  {ancestors}  Up the DOM Tree
+        // ==> parent() <==
+        // $('span').parent().css({color : "red",border : '2px solid red'});
+        // ==>  parents() <==
+        // $('span').parents().css({color:"red",border:"2px solid red"});
+        // ==>  parentsUntil() <==
+        // $('span').parentsUntil('div').css({color:"red",border:"2px solid red"});
+        //==========================================================
+        //  {Descendants}  down the DOM Tree
+        // ==> children() <==
+        // $("div").children().css({ color: "red", border: "2px solid red" });
+        //     $("div")
+        //       .children("p.first")
+        //       .css({ color: "red", border: "2px solid red" });
+
+        // ==> find() <==
+        // $("div").find("span").css({ color: "red", border: "2px solid red" });
+
+        $('div').find('*').css({coloir:'red',border:'2px solid red'});
+      });
+    </script>
+  </body>
+</html>
